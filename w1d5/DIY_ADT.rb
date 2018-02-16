@@ -19,7 +19,6 @@ end
 
 
 
-# EXERCISE 2
 class Queue
   def initialize
     @queue = []
@@ -40,8 +39,6 @@ class Queue
 end
 
 
-
-# EXERCISE 3
 class Map
   def initialize
     @map = []
@@ -71,5 +68,5 @@ class Map
   def deep_dup(arr)
     arr.map { |el| el.is_a?(Array) ? deep_dup(el) : el }
   end
-  
+
 end
