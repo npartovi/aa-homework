@@ -6,6 +6,7 @@ class Stack
   def add(el)
     @stack << el
     el
+
   end
 
   def remove
@@ -22,15 +23,18 @@ end
 class Queue
   def initialize
     @queue = []
+
   end
 
   def enqueue(el)
-    @queue << el
+    @enqueue << el
     el
+
   end
 
   def dequeue
-    @queue.shift
+    @enqueue.shift
+
   end
 
   def show
@@ -40,33 +44,55 @@ end
 
 
 class Map
+
   def initialize
     @map = []
+
   end
 
   def assign(key, value)
-    pair_index = @map.index {|pair| pair[0] == key}
-    pair_index ? @map[pair_index][1] = value : @map.push([key, value])
+    pair_idx = @map.index { |pair| pair[0] == key }
+
+    if pair_idx
+      @map[pair_idx][1] = value
+    else
+      @map << [key, value]
+    end
+
     [key, value]
+
   end
 
   def lookup(key)
+
     @map.each {|pair| return pair[1] if pair[0] == key}
-    nil
+   
   end
 
   def remove(key)
+
     @map.reject! {|pair| pair[0] == key}
-    nil
+
+   
   end
 
   def show
+
     deep_dup(@map)
+  
   end
 
 
   def deep_dup(arr)
-    arr.map { |el| el.is_a?(Array) ? deep_dup(el) : el }
+
+    arr.map do |el|
+      if el.is_a?(Array)
+        deep_dup(arr)
+      else
+        el
+      end
+    end
+    
   end
 
 end
