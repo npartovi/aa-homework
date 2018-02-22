@@ -1,5 +1,5 @@
 require 'active_support/inflector'
-require_relative "chef"
+# require_relative "chef"
 
 class Dessert
   attr_reader :type, :quantity, :ingredients, :temp
