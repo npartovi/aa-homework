@@ -42,7 +42,7 @@ group :development, :test do
 end
 
  group :test do
-    gem 'factory_bot_rails', :require => false
+    gem 'factory_bot_rails', :require => true
     gem 'faker'
     gem 'capybara'
     gem 'launchy'
